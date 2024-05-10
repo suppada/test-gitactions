@@ -25,4 +25,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: suppada669/test2:latest
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/test2:$tag
