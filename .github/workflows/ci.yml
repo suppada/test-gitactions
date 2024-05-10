@@ -13,6 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build and Push Docker Image
+      env:
+        PASSWORD: ${{ env.cred }}
       run: echo ${{ secrets.PASSWORD }} | docker login -u ${{ secrets.USERNAME }} --password-stdin
 
     - name: Set up JDK 1.8
